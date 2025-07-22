@@ -1,3 +1,14 @@
+---
+title: AI Study Summarizer
+emoji: 🧠
+colorFrom: blue
+colorTo: green
+sdk: streamlit
+sdk_version: "1.35.0"
+app_file: app.py
+pinned: false
+---
+
 # AI Study Summarizer
 
 A lightweight GenAI tool that lets researchers, clinical scientists, and pharma teams rapidly summarize real PubMed studies using real-world data (RWD) queries.
