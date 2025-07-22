@@ -1,4 +1,4 @@
-name: Deploy to Hugging Face Spaces
+name: Deploy to Hugging Face Space
 
 on:
   push:
@@ -10,20 +10,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout the repository
         uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.10"
-
-      - name: Install dependencies
+      - name: Set up Git config
         run: |
-          pip install -U huggingface_hub
+          git config --global user.email "you@example.com"
+          git config --global user.name "GitHub Actions"
 
       - name: Push to Hugging Face Space
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          huggingface-cli repo sync ${{ github.repository }} --type=space --token $HF_TOKEN
+          git clone https://huggingface_hub_login:$HF_TOKEN@huggingface.co/spaces/matthew-tendler/ai-study-summarizer space-repo
+          rsync -av --exclude='.git' ./ space-repo/
+          cd space-repo
+          git add .
+          git commit -m "Update from GitHub Actions"
+          git push
