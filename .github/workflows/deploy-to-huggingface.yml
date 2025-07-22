@@ -1,0 +1,19 @@
+name: Deploy to Hugging Face Spaces
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Deploy to Hugging Face Spaces
+        uses: huggingface/huggingface-cli-action@v0.1
+        with:
+          repo: "matthew-tendler/ai-study-summarizer"
+          token: ${{ secrets.HF_TOKEN }}
