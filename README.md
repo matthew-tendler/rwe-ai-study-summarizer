@@ -2,7 +2,7 @@
 
 A lightweight GenAI tool that lets researchers, clinical scientists, and pharma teams rapidly summarize real PubMed studies using real-world data (RWD) queries.
 
-## 🧑‍🔬 Who is this for?
+## Who is this for?
 
 - **Primary Users**:
   - Clinical scientists designing or evaluating trial protocols
